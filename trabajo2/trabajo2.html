@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      body {
+        background-color: gray;
+      }
+      canvas {
+        background-color: rgb(101, 221, 221);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script>
+      const myCanvas = document.getElementById("myCanvas");
+      const ctx = myCanvas.getContext("2d");
+
+        // ctx.beginPath();
+        // ctx.fillStyle = "rgba(135, 12, 12)";
+        // ctx.fillStyle = "rgba(179, 16, 16)";
+        // ctx.arc(300, 250, 150, 2, 3 * Math.PI);
+        // ctx.fillRect(190, 330, 220, 100);
+        // ctx.fillRect(150, 200, 20, 100);
+        // ctx.fill();
+        // ctx.fillRect(435, 200, 20, 100);
+        // ctx.fill();
+        // ctx.closePath();
+        ctx.beginPath();
+        ctx.fillStyle = "rgb(22, 165, 32)";
+        ctx.arc(300, 600, 150, 2, 3 * Math.PI);
+        ctx.arc(400, 600, 150, 2, 3 * Math.PI);
+        ctx.fillStyle = "rgb(17, 128, 25)";
+        ctx.arc(450, 550, 50, 2, 3 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.fillStyle = "rgb(229, 175, 55)";
+        ctx.fillRect(20, 300, 350, 300);
+
+        
+
+        ctx.beginPath();
+        ctx.fillStyle = "rgb(248, 54, 21)";
+        ctx.moveTo(10, 300);
+        ctx.lineTo(180, 220);
+        ctx.lineTo(380, 300);
+        ctx.fill();
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.fillStyle = "rgb(117, 60, 15)";
+        ctx.fillRect(155, 470, 80, 130);
+
+        ctx.fillStyle = "rgb(30, 178, 224)";
+        ctx.fillRect(40, 380, 100, 80);
+        ctx.fillRect(250, 380, 100, 80);
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 25);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 50);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(185, 75);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(170, 100);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(130, 150);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(100, 180);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(50, 200);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.lineWidth = 5
+        ctx.fillStyle = "rgb(241, 148, 21)";
+        ctx.arc(0, 0, 150, 2, 3 * Math.PI);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(20, 200);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+        
+    </script>
+  </body>
+</html>
