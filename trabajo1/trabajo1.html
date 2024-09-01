@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      body {
+        background-color: gray;
+      }
+      canvas {
+        background-color: darkslategrey;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script>
+      const myCanvas = document.getElementById("myCanvas");
+      const ctx = myCanvas.getContext("2d");
+      var img = new Image();
+      img.src = "espacio.jpg";
+
+      // Dibuja la imagen al cargar
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0, 600, 600);
+
+        // Los elementos restantes se dibujan sobre la imagen de fondo
+
+        // Rojo
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(135, 12, 12)";
+        ctx.fillStyle = "rgba(179, 16, 16)";
+        ctx.arc(300, 250, 150, 2, 3 * Math.PI);
+        ctx.fillRect(190, 330, 220, 100);
+        ctx.fillRect(150, 200, 20, 100);
+        ctx.fill();
+        ctx.fillRect(435, 200, 20, 100);
+        ctx.fill();
+        ctx.closePath();
+
+        // Amarillo
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(241, 166, 12)";
+        ctx.arc(300, 250, 125, 2, 3 * Math.PI);
+        ctx.fillRect(210, 320, 180, 100);
+        ctx.fill();
+        ctx.closePath();
+
+        // Rojo oscuro
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(179, 16, 16)";
+        ctx.fillStyle = "rgba(135, 12, 12)";
+        ctx.fillRect(205, 335, 10, 85);
+        ctx.fillRect(380, 335, 10, 85);
+        ctx.fillRect(270, 125, 50, 55);
+        ctx.fill();
+        ctx.closePath();
+
+        // Línea ojos negro y azul
+        ctx.fillStyle = "rgba(21, 179, 207, 0.5)";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(280, 230);
+        ctx.lineTo(230, 250);
+        ctx.lineTo(210, 220);
+        ctx.lineTo(380, 220);
+        ctx.lineTo(360, 250);
+        ctx.lineTo(310, 230);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        // Línea boca negro
+        ctx.fillStyle = "black";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(300, 420, 60, 3.7, 1.8 * Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(250, 388);
+        ctx.lineTo(190, 380);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(345, 385);
+        ctx.lineTo(410, 370);
+        ctx.stroke();
+        ctx.closePath();
+
+        // Texto
+        ctx.font = "bold 20px arial, serif";
+        ctx.fillStyle = "White";
+        ctx.fillText("IRONMAN", 250, 30);
+      };
+    </script>
+  </body>
+</html>
