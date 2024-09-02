@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      body {
+        background-color: gray;
+      }
+      canvas {
+        background-color: rgb(59, 176, 243);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+
+    <script>
+      const myCanvas = document.getElementById("myCanvas");
+      const ctx = myCanvas.getContext("2d");
+
+      //piso
+      ctx.fillStyle = "rgba(109, 206, 30)";
+      ctx.fillRect(0,475,600,20);
+
+      ctx.fillStyle = "rgba(89, 170, 24)";
+      ctx.fillRect(0,495,600,20);
+
+      ctx.fillStyle = "rgba(62, 116, 19)";
+      ctx.fillRect(0,515,600,20);
+
+      ctx.fillStyle = "rgba(196, 105, 49)";
+      ctx.fillRect(0,535,600,100);
+
+      ctx.fillStyle = "rgba(111, 54, 19)";
+      for (let x = 0; x < 600; x += 40) {
+          for (let y = 535; y < 600; y += 20) {
+              let offsetX = (y === 555) ? 20 : 0;
+              ctx.fillRect(x + offsetX, y, 20, 20);
+          }
+      }
+
+      ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
+      ctx.fillRect(0,535,600,33);
+
+      //Anillos
+      ctx.strokeStyle = "rgb(251, 181, 5)";
+      ctx.lineWidth = 8;
+      ctx.beginPath();
+      ctx.arc(100, 425, 25, 2, 3 * Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(180, 425, 25, 2, 3 * Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(260, 425, 25, 2, 3 * Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      //Palma
+      ctx.fillStyle = "rgba(174, 112, 14)";
+      ctx.strokeStyle = "rgb(39, 121, 5)";
+      ctx.lineWidth = 1;
+      ctx.fillRect(325, 175, 20, 300);
+      ctx.beginPath();
+      ctx.ellipse(274,197,67,11,-0.3, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.ellipse(269,226,88,12,-0.6, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.ellipse(390,234,82,11,0.79, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.ellipse(303,243,81,11,-0.9, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.ellipse(372,245,82,10,1.09, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.ellipse(414,206,82,10,0.4, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.fillStyle = "rgba(61, 174, 14)";
+      ctx.fill();
+      ctx.stroke();
+
+      //Flor
+      ctx.fillStyle = "rgba(62, 188, 0)";
+      ctx.strokeStyle = "rgba(46, 138, 0)";
+      ctx.lineWidth = 1;
+      ctx.fillRect(499,420,8,55);
+      ctx.strokeRect(499,420,8,55);
+      
+      ctx.fillStyle = "rgba(247, 205, 17)";
+      ctx.strokeStyle = "rgba(188, 153, 0)";
+      ctx.beginPath();
+      ctx.ellipse(504,411,37,11,-0.7, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.ellipse(500,409,36,14,0.7, 0,2 * Math.PI );
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.ellipse(502,411,36,15,1.70, 0,2 * Math.PI );
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+      
+      ctx.beginPath();
+      ctx.ellipse(502,410,38,14,0, 0,2 * Math.PI );
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+      
+      ctx.fillStyle = "rgba(188, 105, 0 )";
+      ctx.beginPath();
+      ctx.ellipse(502,411,20,20,0, 0,2 * Math.PI );
+      ctx.closePath();
+      ctx.fill();
+  </script>
+  </body>
+</html>
