@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+        body {
+            background-color: gray;
+        }
+        canvas {
+            background-color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="600" height="500"></canvas>
+        <script>
+
+        class Rectangulo {
+
+            constructor(color, x, y, w, h, speed){
+                this.color = color;
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+                this.speed = speed;
+            }
+
+            colision(otro){
+                if (this.x < otro.x + otro.w
+                    &&  this.x + this.w > otro.x
+                    &&  this.y  < otro.y + otro.h
+                    &&   this.y  + this.h > otro.y)    
+                { 
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        var player = new Rectangulo("blue", 20, 20, 50, 50, 5);
+        var target = new Rectangulo("black", 20, 20, 15, 15, null);
+        var wall = new Rectangulo("gray", 120, 320, 300, 20, 5);
+
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+
+        var x = 40;
+        var y = 40;
+        var direction = '';
+        var speed = 5;
+
+            document
+            .addEventListener("keydown", function(e){
+            switch (e.key) {
+                case "a" || "A":{
+                direction = "izquierda"
+                break;
+                }
+                case "d":{
+                direction = "derecha"
+                break
+                }
+                case "w":{
+                direction = "arriba"
+                break
+                }
+                case "s":{
+                direction = "abajo"
+                break
+                }
+                case "e":{
+                player.speed += 2;
+                break;
+                }
+                default:
+                break;
+            }
+            });
+
+            function update(){
+
+            switch (direction) {
+                case "izquierda":{
+                player.x -= player.speed;
+                if (player.x <= -25) {
+                    player.x = 600
+                }
+                break;
+                }
+                case "derecha":{
+                    player.x += player.speed;
+                if (player.x >= 600) {
+                    player.x = 0
+                }
+                break;
+                }
+                case "abajo":{
+                player.y += player.speed;
+                if (player.y >= 500) {
+                    player.y = 0
+                }
+                break;
+                }
+                case "arriba":{
+                player.y -= player.speed;
+                if (player.y <= -25) {
+                player.y = 500
+                }
+                break;
+                }
+                default:
+                break;
+            }
+                if (player.colision(target)){
+                    target.x = Math.floor(Math.random() * 450)
+                    target.y = Math.floor(Math.random() * 450)
+                }
+                
+                if (player.colision(wall)){
+                    switch (direction) {
+                    case "izquierda":{
+                    player.x += player.speed;
+                    break;
+                    }
+                    case "derecha":{
+                        player.x -= player.speed;
+                    break;
+                    }
+                    case "abajo":{
+                    player.y -= player.speed;
+                    break;
+                    }
+                    case "arriba":{
+                    player.y += player.speed;
+                    
+                    break;
+                    }
+                }
+                }
+            }
+
+            function paint() {
+            ctx.fillStyle= "white";
+            ctx.fillRect(0, 0, 600, 500);
+
+            ctx.font = "italic bold 20px arial,serif";
+            ctx.fillStyle = "black"
+            ctx.fillText("Velocidad: " + player.speed ,20,30)
+            
+            //Player
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+            
+            //Target
+            ctx.fillStyle = target.color;
+            ctx.fillRect(target.x, target.y, target.w, target.h);
+            
+            //Wall
+            ctx.fillStyle = wall.color;
+            ctx.fillRect(wall.x, wall.y, wall.w, wall.h);
+            
+            update();
+            requestAnimationFrame(paint);
+            }
+
+            requestAnimationFrame(paint);
+            function getRandomColor() {
+            var trans = "0.5";
+            var color = "rgba(";
+            for (var i = 0; i < 3; i++) {
+                color += Math.floor(Math.random() * 255) + ",";
+            }
+            color += trans + ")";
+            return color;
+            }
+            window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+
+            function (callback) {
+                window.setTimeout(callback, 17);
+            };
+
+            }());
+        </script>
+    </body>
+</html>
